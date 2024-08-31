@@ -1,0 +1,112 @@
+npm- node packet manager: used to intall libraries
+npx- node packet executer: used to execute library without installing them
+
+Three component of react
+>> react(core) + react-dom -> used for web app dev
+>> react(core) + react-native -> used for mobile app dev
+
+
+TO RUN START SCRIPT (run the file) >> npm run start
+TO RUN BUILD SCRIPT >> npm run build
+
+WAY TO CREATE REACT FILE
+ >> WAY 1
+ command: npx create-react-app filename
+ But this method takes lot of time cuz it is bulky
+
+>> WAY 2 (using VITE - it is a bundler)
+command: npm create vite@latest
+then select require framework and all 
+** inside vite file "node module" file is missing so to install it write : npm i or npm install which will install all required files
+to run : npm run dev
+
+
+>> Video : 3
+- vite force to wirte the function name(component) starting with capital letter (example: App.jsx; index.jsx)
+- also vite force to use .jsx extension for files
+
+- basic react also force to use capital first letter for component names 
+- but we can use any of them .js or .jsx extension 
+
+-vite don't hold index.html file inside public folder unlike basic react library
+-In vite app index.html files has include the script js file using <script> tag whereas in basic react app mathod 
+
+>>Video : 4
+-check file customReact
+-to display how react creat elements and append it into dom
+-how reactElement looks like (check customReact.js)
+-in previous 01vitereact file App() function is parsed (converted) into reactElement{} structure, cuz react only understand reactElement
+-general react element is like this 
+    const ele =  react.createElement{
+        'h1',        -->tags
+        {            -->object which hold the properties/attributes
+
+        },
+        "Hello boy"  -->children
+    }
+
+    -- after this children variables are injected inside element 
+
+-Now instead of <app /> in render() in vite, we can simply pass ele and it will work fine
+-to print variable we use {username} where const username = "Priyanshu"
+-we can use this variable in return func of App() check 01vitereact
+
+>>Video : 5
+-check 02counterProject
+-Hooks are important to do lot of works
+-we have used useState() hook to propagate changes to UI which will be stored in a array which has two values
+
+>>Video : 6 (Virtual DOM)
+-In 02counterProject inside main.jsx file ReactDOM.createRoot() -- this createRoot create a virtual DOM
+-then that virtual DOM and original DOM get compaired and changes are made accordingly
+-that loading of webpage occurs due to this DOM updation
+- READ this article about react fiber architechture : https://github.com/acdlite/react-fiber-architecture
+-Although virtual DOM are not used now a days it is now Ract fiber
+-RECONCILATION: the algorithm behind fiber/vertual DOM. It diff the two trees and update the changes
+
+
+>>Video : 7 (TailWind CSS and Props)-------------03tailwind_props
+-to install tailwind CSS    
+    -open tailwindcss.com
+    -copy the installation code to the terminal
+    -configure the tailwind find (follow the steps given on the website)
+    -edit index.css
+-tailwind has some predefined classes like bg-green-400, mb-4(margin buttom 4%) etc     check app.jsx for more
+-devui.io **** from here you can have some built-in components
+-installed an extension react snippit using which rfc -> write whole react functional code used in Card.jsx
+
+Props
+-I have created Card.jsx under fles components
+-now i can just write <Card /> in app.jsx to make a card
+-But the problem is when you call Card it repeat the same content inside every ner card 
+-so porps ** will help to assign new data inside same components
+-every functional component has props built-in wheather you write it explicitly or not 
+    example: check Card.jsx function Card(props){}
+    this props retrun object by default it is empty
+
+>>Video : 8 (Interview concept)
+-
+
+>>Video : 9 (04bgColorChanger)
+-we have used tailwind css 
+-we have used useState hook 
+-onclick function which take a function but if we give a reference of function (onClick(setColor)) then we can not give the parameter to the function (like setColor("red))
+-that is why we have used a call function (onClick(()=>setColor("red)))  this way we are passing a function under a function 
+
+>>Video : 10 (05passwordGenerator)
+-memoization concept
+-use more hooks like useEffect(), useRef() and useCallback()
+
+
+>>Video : 11 (06currencyConvertor)
+-make custom hooks --useCurrencyInfo.js
+
+>>Video : 12 ()
+-React Router DOM is a third party library
+-visit React router dom website
+-have to install the package as -> npm i react-router-dom 
+-we'll use Link and navLink tags from react-router-dom 
+-Link tag use in place of <a> tag cuz <a> tag works after refreshing the whole page which is not done in react so use <Link> tag
+-NavLink helps in detecting wheather the curesor is on the Link or not 
+-here we don't render app.jsx because we have installed react-router-dom so we can directly render/return routerProvider from main.jsx
+-routerProvider takes a prop called router = {router} now we have to create router**
